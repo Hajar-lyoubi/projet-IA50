@@ -12,7 +12,7 @@ class Solution:
         self.is_feasible = True
         self.history: List[Tuple[str, int, float]] = [] # (Stage, Step, Cost)
         self._calculate_metrics()
-
+        
     def _calculate_metrics(self):
         self.total_distance = 0.0
         self.total_wait = 0.0

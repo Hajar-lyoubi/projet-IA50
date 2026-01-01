@@ -30,3 +30,8 @@ ENV/
 .vscode/
 .idea/
 .DS_Store
+
+#custom
+*.csv
+*.log
+.venv
