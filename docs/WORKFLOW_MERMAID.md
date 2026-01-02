@@ -500,11 +500,11 @@ graph TD
     F --> F3["Tabu: Polish final"]
     F --> F4["Combinés = 🏆 Meilleur résultat"]
     
-    style A fill:#e3f2fd
-    style B1 fill:#fff3e0
-    style B2 fill:#f3e5f5
-    style B3 fill:#e8f5e9
-    style F4 fill:#c8e6c9,color:#000
+    style A fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#fff
+    style B1 fill:#FF9800,stroke:#E65100,stroke-width:2px,color:#fff
+    style B2 fill:#9C27B0,stroke:#6A1B9A,stroke-width:2px,color:#fff
+    style B3 fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#fff
+    style F4 fill:#FF6F00,stroke:#E65100,stroke-width:2px,color:#fff
 ```
 
 ---
