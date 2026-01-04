@@ -117,28 +117,10 @@ Detailed results available in `docs/RAPPORT_TECHNIQUE.pdf`.
 
 ## 🎓 Academic Context
 
-**Course:** AI50 - Optimization and Artificial Intelligence  
+**Course:** AI50  
 **University:** UTBM (University of Technology of Belfort-Montbéliard)  
 **Date:** January 2026  
 
-## 🤝 Contributing
 
-Contributions are welcome:
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Submit a pull request
-
-## 📝 License
-
-MIT License
-
-## 🙏 Acknowledgments
-
-- Solomon benchmark instances
-- UTBM AI50 course materials
-- Open-source Python community
-
----
 
 **Download → Run `run_app.bat` → Solve CVRPTW instances**
