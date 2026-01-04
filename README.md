@@ -1,44 +1,37 @@
 # 🚚 CVRPTW Hybrid Solver
 
-> *Because manually planning delivery routes is so 2010...*
+## 🎯 Overview
 
-Hey! Welcome to my AI50 project - a hybrid metaheuristic solver for the **Capacitated Vehicle Routing Problem with Time Windows** (aka the "how do I deliver stuff efficiently without breaking physics" problem).
-
-## 🎯 What's This About?
-
-Ever wondered how Amazon delivers your stuff on time? Or how delivery companies figure out which truck goes where? That's what this solves! 
+A hybrid metaheuristic solver for the Capacitated Vehicle Routing Problem with Time Windows (CVRPTW).
 
 **The Problem:** 
-- You have customers scattered around a city
-- Each customer wants their delivery in a specific time window (no early, no late)
-- Your trucks have limited capacity
-- You want to minimize total distance traveled
+- Customers distributed across a geographical area
+- Each customer has a time window for service
+- Vehicles have capacity constraints
+- Objective: minimize total travel distance
 
-**The Solution:**
-I built a hybrid solver combining three algorithms:
-- 🐜 **Ant Colony Optimization** - Ants finding the best paths (nature is cool)
-- 🧬 **Genetic Algorithm** - Evolution but for routes
-- 🎯 **Tabu Search** - Local optimization with memory
+**Our Solution:**
+A hybrid solver combining three algorithms:
+- 🐜 **Ant Colony Optimization** - Constructive route generation
+- 🧬 **Genetic Algorithm** - Population-based evolution
+- 🎯 **Tabu Search** - Local optimization
 
 ## 🚀 Quick Start
 
-### Option 1: For the Lazy (Recommended 😎)
-
-**Windows:**
+### Windows
 ```bash
-# Just double-click this bad boy
 run_app.bat
 ```
 
-**Linux/Mac:**
+### Linux/Mac
 ```bash
 chmod +x run_app.sh
 ./run_app.sh
 ```
 
-Wait 30 seconds while it installs stuff, then boom - app opens in your browser!
+The script will automatically create a virtual environment, install dependencies, and launch the application.
 
-### Option 2: For the "I Know What I'm Doing" People
+### Manual Installation
 
 ```bash
 # Create virtual environment
@@ -48,10 +41,10 @@ python -m venv .venv
 .venv\Scripts\activate  # Windows
 source .venv/bin/activate  # Mac/Linux
 
-# Install stuff
+# Install dependencies
 pip install -r requirements.txt
 
-# Run it
+# Run application
 streamlit run app.py
 ```
 
@@ -59,69 +52,68 @@ streamlit run app.py
 
 ```
 projet-IA50/
-├── app.py                  # Main Streamlit app (the pretty UI)
+├── app.py                  # Main Streamlit application
 ├── src/
-│   ├── solvers/           # The brain of the operation
-│   │   ├── aco.py         # Ant algorithm
-│   │   ├── ga.py          # Genetic algorithm
-│   │   ├── tabu.py        # Tabu search
-│   │   └── hybrid.py      # The conductor
-│   ├── core/              # Data models and stuff
-│   ├── utils/             # Helper functions
+│   ├── solvers/           # Algorithm implementations
+│   │   ├── aco.py         # Ant Colony Optimization
+│   │   ├── ga.py          # Genetic Algorithm
+│   │   ├── tabu.py        # Tabu Search
+│   │   └── hybrid.py      # Hybrid solver orchestrator
+│   ├── core/              # Data models
+│   ├── utils/             # Utility functions
 │   └── data/solomon/      # Benchmark instances
 ├── docs/                  # Technical report & diagrams
-└── run_app.bat            # Your new best friend
+└── run_app.bat            # Windows executable
 ```
 
-## 🎮 How to Use
+## 🎮 Usage
 
-1. **Launch the app** (see Quick Start above)
-2. **Pick a Solomon instance** (c101, r101, etc.) or upload your own
-3. **Adjust parameters** if you're feeling adventurous
-4. **Hit "Solve"** and watch the magic happen
-5. **Check out the results:**
-   - 🗺️ Route visualization (color-coded trucks)
-   - 📊 Convergence graphs (seeing the algorithm improve)
-   - 📅 Gantt chart (timeline of deliveries)
+1. Launch the application
+2. Select a Solomon benchmark instance or upload custom data
+3. Configure algorithm parameters
+4. Execute the solver
+5. View results:
+   - Route visualization
+   - Convergence analysis
+   - Gantt chart scheduling
 
-## 🧪 What I Tested
+## 🧪 Testing & Results
 
-Used the famous **Solomon benchmark instances** - basically the industry standard for "does your solver suck or not?"
+Tested on Solomon benchmark instances, the industry standard for CVRPTW validation.
 
-**Results:**
-- ✅ 100% feasibility rate (no cheating with invalid routes)
-- ✅ Competitive with state-of-the-art (within 5-10% of best known)
-- ✅ Fast execution (~1-2 seconds for 100 customers)
+**Performance:**
+- 100% feasibility rate across all instances
+- Solution quality within 5-10% of best known results
+- Average execution time: 1-2 seconds for 100-customer instances
 
-Check `docs/RAPPORT_TECHNIQUE.pdf` for all the nerdy details.
+Detailed results available in `docs/RAPPORT_TECHNIQUE.pdf`.
 
 ## 🛠️ Tech Stack
 
-- **Python 3.10+** (because we're modern)
-- **Streamlit** (for the slick UI)
-- **NumPy** (for the math magic)
-- **Matplotlib** (for pretty graphs)
-- **Pandas** (because data)
+- **Python 3.10+**
+- **Streamlit** - Web interface
+- **NumPy** - Numerical computations
+- **Matplotlib** - Visualization
+- **Pandas** - Data handling
 
-## 📚 What I Learned
+## 📚 Key Findings
 
-- Hybrid algorithms > individual algorithms (teamwork makes the dream work)
-- Time windows are WAY harder than just capacity constraints
-- Python dataclasses are criminally underrated
-- Streamlit is amazing for quick prototypes
-- ACO is basically controlled chaos and it works
+- Hybrid algorithms outperform individual metaheuristics
+- Time window constraints significantly increase problem complexity
+- Sequential pipeline approach balances exploration and exploitation
+- Proper constraint handling is critical for solution feasibility
 
 ## 🐛 Known Issues
 
-- Sometimes the first run takes a minute (installing dependencies)
-- If port 8501 is busy, change it with `streamlit run app.py --server.port 8502`
-- Tabu search can be picky about parameters (RTFM in the docs)
+- Initial setup may take 1-2 minutes for dependency installation
+- Default port 8501 - use `--server.port` flag if occupied
+- Parameter tuning may be required for optimal performance on specific instances
 
 ## 📖 Documentation
 
-- **Technical Report:** `docs/RAPPORT_TECHNIQUE.pdf` (all the academic stuff)
-- **Executable Guide:** `EXECUTABLE_README.md` (for troubleshooting)
-- **Code Documentation:** Check the docstrings in the code
+- **Technical Report:** `docs/RAPPORT_TECHNIQUE.pdf`
+- **Executable Guide:** `EXECUTABLE_README.md`
+- **Code Documentation:** Inline docstrings
 
 ## 🎓 Academic Context
 
@@ -131,27 +123,22 @@ Check `docs/RAPPORT_TECHNIQUE.pdf` for all the nerdy details.
 
 ## 🤝 Contributing
 
-This is a student project, but if you find bugs or have ideas:
-1. Fork it
-2. Create a branch
-3. Make your changes
-4. Submit a PR
-
-Or just open an issue and tell me what's broken 🙃
+Contributions are welcome:
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Submit a pull request
 
 ## 📝 License
 
-MIT License - do whatever you want with it, just don't blame me if your delivery company goes bankrupt.
+MIT License
 
 ## 🙏 Acknowledgments
 
-- **Solomon** for the benchmark instances
-- **Coffee** for existing
-- **Stack Overflow** for debugging my life
-- **My brain** for occasionally working
+- Solomon benchmark instances
+- UTBM AI50 course materials
+- Open-source Python community
 
 ---
 
-**TL;DR:** Download → Run `run_app.bat` → Get optimized delivery routes → Profit? 📦
-
-*Made with ☕ and mild panic by a student who procrastinated until the last week*
+**Download → Run `run_app.bat` → Solve CVRPTW instances**
